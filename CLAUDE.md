@@ -10,7 +10,7 @@ A single-page personal portfolio site, live at **buildwithvarun.com**.
 - `README.md` — human-facing overview.
 - `Varun_Patel_Resume.pdf` — linked resume download. May be out of date relative to the site content; confirm with Varun before assuming it's current.
 - `Images/` — photo assets used in the gallery/media sections.
-- `Certifications/` — one subfolder per credential, each holding a `certificate.pdf` for the `#certifications` section. Cards are text-led (no screenshot image) by design — see `Certifications/README.md`; placeholder PDFs until real files are supplied.
+- `Certifications/` — one subfolder per credential, each holding the real `certificate.pdf` for the `#certifications` section. Cards are text-led (no screenshot image, no "Completed" badge) by design — see `Certifications/README.md`.
 - `assets/css/`, `assets/js/` — currently empty. Reserved for when the inline `<style>`/`<script>` blocks in `index.html` eventually get split into standalone files. That split hasn't happened yet — treat it as a deliberate future change, not something to do incidentally while touching something else.
 - `docs/` — currently empty. Reserved for documentation beyond the top-level README (e.g. a content-editing guide, changelog, confirmed Netlify setup notes).
 
@@ -61,5 +61,5 @@ Not being worked on right now, just flagged so future sessions don't have to red
 - `Varun_Patel_Resume.pdf` may be out of date relative to the site's experience section.
 - Contact is mailto-only; may move to a real form later.
 - Netlify/DNS configuration lives outside this repo — confirm against the actual dashboard before treating any deployment claim here as current.
-- `#certifications` "Verify Credential" links point at real Product School verification URLs. "View Certificate" links still point at placeholder PDF paths (see `Certifications/README.md`) until Varun supplies the actual PDF files.
+- `#certifications` is fully live: real PDFs are in place under `Certifications/<slug>/certificate.pdf` and "Verify Credential" links point at real Product School verification URLs. Cards deliberately don't show a "Completed" badge — attaching the certificate PDF already implies completion, so a separate status label would be redundant.
 - Nav is missing a link to `#testimonials`; no favicon; no Open Graph/Twitter Card meta tags; no `robots.txt`/`sitemap.xml`. Flagged during a site audit, not yet addressed.
