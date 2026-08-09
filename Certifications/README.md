@@ -1,6 +1,6 @@
 # Certifications
 
-Assets backing the `#certifications` section in `index.html`. One subfolder per credential — drop the real file in with this exact name and the section picks it up automatically, no HTML changes needed.
+Assets backing the `#certifications` section in `index.html`. One subfolder per credential, each holding the real `certificate.pdf`:
 
 ```
 Certifications/
@@ -14,6 +14,6 @@ Certifications/
     certificate.pdf     ← Vibe Coding Certification (Product School)
 ```
 
-"Verify Credential" links already point at the real Product School verification URLs. Until the real PDF files are added, each card's "View Certificate" link will still 404 — that's expected, not a bug.
+"Verify Credential" links point at the real Product School verification URLs. "View Certificate" links point at the PDFs above.
 
-The cards intentionally don't show a certificate screenshot — a text-led credential list matches the site's confident, non-boastful tone better than an image-heavy showcase, and the verify link already does the proof-of-credential job.
+The cards intentionally don't show a certificate screenshot or a "Completed" status badge — the certificate PDF being attached already proves completion, so a separate status label would be redundant. A text-led credential list matches the site's confident, non-boastful tone better than an image-heavy showcase.
