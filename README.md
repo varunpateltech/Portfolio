@@ -1,6 +1,6 @@
 # Varun Patel — Portfolio Website
 
-Personal portfolio website for [countrep.com](https://countrep.com).
+Personal portfolio website for [buildwithvarun.com](https://buildwithvarun.com).
 
 ## About
 
