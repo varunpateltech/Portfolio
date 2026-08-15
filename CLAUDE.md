@@ -36,8 +36,9 @@ If Varun says his role or timeline has changed, update `index.html` (and this fi
 ## Domain & deployment
 
 - Live domain: `buildwithvarun.com`.
-- `README.md` states the site auto-deploys to Netlify on every push to `main`, with the custom domain configured there. There is **no in-repo Netlify config** (no `netlify.toml`, `_redirects`, `_headers`), everything is managed through the Netlify dashboard.
+- `README.md` states the site auto-deploys to Netlify on every push to `main`, with the custom domain configured there. There is **no in-repo `netlify.toml` or `_redirects`**, that part of the config is managed through the Netlify dashboard.
 - Varun has Netlify dashboard access. Treat deployment/DNS/build-hook specifics as **unverified from the repo**, confirm with him before stating them as fact or changing anything that depends on them.
+- `_headers` at the repo root sets security response headers (CSP, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy). Netlify reads this file automatically, no `netlify.toml` needed. If a new third-party script, font, or embed is added to `index.html`, the `Content-Security-Policy` line in `_headers` needs a matching source added or the resource will be silently blocked in production (won't show up when testing via `file://`, only once actually served by Netlify).
 
 ## Third-party integrations
 
@@ -64,4 +65,5 @@ Not being worked on right now, just flagged so future sessions don't have to red
 - `#certifications` is fully live: real PDFs are in place under `Certifications/<slug>/certificate.pdf` and "Verify Credential" links point at real Product School verification URLs. Cards deliberately don't show a "Completed" badge, since attaching the certificate PDF already implies completion, making a separate status label redundant.
 - Nav is missing a link to `#testimonials`; no favicon; no Open Graph/Twitter Card meta tags; no `robots.txt`/`sitemap.xml`. Flagged during a site audit, not yet addressed.
 - The Harrison Domoi testimonial quote in `#testimonials` contains an em dash. Left as-is deliberately: it's a direct quote from a colleague, not site copy, so it's exempt from the no-em-dash rule above.
+- `_headers` sets `script-src 'self' 'unsafe-inline' ...` and `style-src 'self' 'unsafe-inline' ...` because `index.html` has inline `<script>`/`<style>` blocks and inline `style="..."` attributes throughout. This weakens the CSP's XSS protection compared to a nonce-based policy, accepted as a tradeoff since the site is static with no user input (no real XSS injection surface) and adding nonces would require build tooling this repo deliberately doesn't have. Revisit if `assets/css`/`assets/js` ever gets split out for real.
 - "Significant new ARR" / "a significant new revenue stream" appears three times (About section and two places in Experience/Case Studies) without a concrete figure, which runs against the concrete-over-vague rule above. Likely because the real number is confidential; flagged here rather than guessed at. Ask Varun if a real figure, percentage, or range can replace "significant" before the next content pass.
